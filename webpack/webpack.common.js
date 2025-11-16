@@ -20,6 +20,32 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: /\.module\.css$/i,
+				use: [
+					production ? MiniCssExtractPlugin.loader : 'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							modules: {
+								localIdentName: '[name]__[local]__[hash:base64:5]',
+							},
+							importLoaders: 1,
+							esModule: false,
+						},
+					},
+					'postcss-loader',
+				],
+			},
+			{
+				test: /\.css$/i,
+				exclude: /\.module\.css$/i,
+				use: [
+					production ? MiniCssExtractPlugin.loader : 'style-loader',
+					'css-loader',
+					'postcss-loader',
+				],
+			},
+			{
 				test: /\.[tj]sx?$/, //содержит регулярное выражение, которое содержит информацию какие файлы должны обрабатываться этим loader'ом
 				use: [
 					{
@@ -48,24 +74,6 @@ module.exports = {
 				test: /\.svg$/i,
 				issuer: /\.[jt]sx?$/,
 				use: ['@svgr/webpack', 'url-loader'],
-			},
-			{
-				test: /\.css$/,
-				use: [
-					production ? MiniCssExtractPlugin.loader : 'style-loader',
-					{
-						loader: 'css-loader',
-						options: {
-							modules: {
-								mode: 'local',
-								localIdentName: '[name]__[local]__[hash:base64:5]',
-								auto: /\.module\.\w+$/i,
-							},
-							importLoaders: 1, //Значение 1 говорит о том, что некоторые трансформации PostCSS нужно применить до css-loader.
-						},
-					},
-					'postcss-loader',
-				],
 			},
 		],
 	},

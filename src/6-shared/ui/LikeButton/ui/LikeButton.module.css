@@ -1,0 +1,23 @@
+.favorite {
+	display: flex;
+	padding: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.favorite svg {
+	fill: #ffffff;
+}
+
+.favorite svg path:first-child {
+	fill: #7b8e98;
+}
+
+.favoriteisactive svg {
+	fill: #f44336;
+}
+
+.favoriteisactive svg path:first-child {
+	fill: #f44336;
+}
