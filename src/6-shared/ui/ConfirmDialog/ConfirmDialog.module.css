@@ -1,55 +1,55 @@
 .overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #00000080;
+	position: fixed;
+	inset: 0;
+	z-index: 10000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #00000080;
 }
 
 .modal {
-    width: 90%;
-    max-width: 400px;
-    padding: 24px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px #00000026;
+	width: 90%;
+	max-width: 400px;
+	padding: 24px;
+	background: white;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px #00000026;
 }
 
 .header {
-    margin-bottom: 16px;
+	margin-bottom: 16px;
 }
 
 .title {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
+	margin: 0;
+	font-weight: 600;
+	font-size: 18px;
 }
 
 .message {
-    margin: 8px 0 20px;
-    font-size: 14px;
-    color: #555;
+	margin: 8px 0 20px;
+	color: #555555;
+	font-size: 14px;
 }
 
 .actions {
-    display: flex;
-    gap: 12px;
-    justify-content: flex-end;
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
 }
 
 .btn {
-    padding: 6px 16px;
-    font-size: 14px;
-    cursor: pointer;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+	padding: 6px 16px;
+	font-size: 14px;
+	background: white;
+	border: 1px solid #dddddd;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
-.btn--primary {
-    color: white;
-    background: #1976d2;
-    border-color: #1976d2;
+.btnprimary {
+	color: white;
+	background: #1976d2;
+	border-color: #1976d2;
 }

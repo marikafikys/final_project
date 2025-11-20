@@ -1,19 +1,24 @@
 import { ChangeEvent } from 'react';
 import { useSort } from '../hooks/useSort';
+import s from './Sort.module.css';
 
 export const Sort = () => {
-	const { sort, setSort, sortParams } = useSort();
+	const { sort, setSort, sortParams, isPending } = useSort();
+
 	const handleSortSelect = (e: ChangeEvent<HTMLSelectElement>) => {
-		const newSort = e.target.value as Sort;
-		setSort(newSort);
+		setSort(e.target.value as Sort);
 	};
+
 	return (
-		<select value={sort} onChange={handleSortSelect}>
-			{sortParams.map((p) => (
-				<option key={p.title} value={p.value}>
-					{p.title}
-				</option>
-			))}
-		</select>
+		<div className={s['wrapper']}>
+			<select value={sort} onChange={handleSortSelect} disabled={isPending}>
+				{sortParams.map((p) => (
+					<option key={p.title} value={p.value}>
+						{p.title}
+					</option>
+				))}
+			</select>
+			{isPending && <span>Фильтрация...</span>}
+		</div>
 	);
 };

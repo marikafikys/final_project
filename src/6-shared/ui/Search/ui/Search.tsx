@@ -1,8 +1,8 @@
 import s from './Search.module.css';
-import { useProductsSearchForm } from '../hooks/usePostsSearchForm';
+import { useProductsSearchForm } from '../hooks/useProductsSearchForm';
 
 export const Search = () => {
-	const { searchValue, setSearchValue } = useProductsSearchForm();
+	const { searchValue, setSearchValue, isPending } = useProductsSearchForm();
 
 	const handleClearSearchText = () => {
 		setSearchValue('');
@@ -17,7 +17,8 @@ export const Search = () => {
 				value={searchValue}
 				onChange={(e) => setSearchValue(e.target.value)}
 			/>
-			{searchValue.length > 0 && (
+			{isPending && <p>Loading...</p>}
+			{searchValue.length > 0 && !isPending && (
 				<button className={s['searchbtn']} onClick={handleClearSearchText}>
 					<svg
 						width='24'

@@ -32,7 +32,7 @@ export const ProductPage = WithProtection(() => {
 	const isProductInCart = !!cartProducts.find((p) => p.id === id);
 
 	return (
-		<>
+		<div className={s.wrap}>
 			<ButtonBack />
 			<h1 className={classNames(s['headertitle'])}>{name}</h1>
 			<p className='acticul'>
@@ -58,8 +58,9 @@ export const ProductPage = WithProtection(() => {
 					) : (
 						<ProductCartCounter product={product} />
 					)}
-
-					<LikeButton product={product} />
+					<div className={s.likewrap}>
+						<LikeButton product={product} />
+					</div>
 					<div className={classNames(s['productdelivery'])}>
 						<img src={truckSVG} alt='truck' />
 						<div className={classNames(s['productright'])}>
@@ -123,6 +124,6 @@ export const ProductPage = WithProtection(() => {
 				</div>
 			</div>
 			<ReviewList product={product} />
-		</>
+		</div>
 	);
 });

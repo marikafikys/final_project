@@ -1,3 +1,11 @@
+.wrap {
+	padding: 20px 40px;
+}
+
+.likewrap {
+	padding: 20px 0;
+}
+
 .headertitle {
 	margin-top: 0;
 	margin-bottom: 20px;
