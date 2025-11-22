@@ -1,10 +1,10 @@
-import { useEffect, useState, useTransition } from 'react';
+import { useEffect, useState, useRef, useTransition } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch } from '1-app/store/utils';
-import { useDebounce } from '../../../lib/hooks/useDebounce';
 import { productsActions } from '5-entities/product';
 
 const QUERY_SEARCH_PHRASE = 'q';
+const DEBOUNCE_DELAY = 500;
 
 export const useProductsSearchForm = () => {
 	const dispatch = useAppDispatch();
@@ -13,15 +13,27 @@ export const useProductsSearchForm = () => {
 		() => searchParams.get(QUERY_SEARCH_PHRASE) ?? ''
 	);
 
-	const optimizedValue = useDebounce(searchValue, 500);
-
 	const [isPending, startTransition] = useTransition();
 
+	const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
 	useEffect(() => {
-		startTransition(() => {
-			dispatch(productsActions.setSearchText(optimizedValue));
-		});
-	}, [optimizedValue, dispatch, startTransition]);
+		if (debounceTimeoutRef.current) {
+			clearTimeout(debounceTimeoutRef.current);
+		}
+
+		debounceTimeoutRef.current = setTimeout(() => {
+			startTransition(() => {
+				dispatch(productsActions.setSearchText(searchValue));
+			});
+		}, DEBOUNCE_DELAY);
+
+		return () => {
+			if (debounceTimeoutRef.current) {
+				clearTimeout(debounceTimeoutRef.current);
+			}
+		};
+	}, [searchValue, dispatch, startTransition]);
 
 	useEffect(() => {
 		if (searchValue) {

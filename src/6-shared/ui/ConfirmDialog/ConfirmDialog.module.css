@@ -53,3 +53,11 @@
 	background: #1976d2;
 	border-color: #1976d2;
 }
+
+.btn:focus,
+.btn:focus-visible,
+.btnprimary:focus,
+.btnprimary:focus-visible {
+	outline: 2px solid #d26919;
+	outline-offset: 2px;
+}
