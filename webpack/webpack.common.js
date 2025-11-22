@@ -7,6 +7,8 @@ require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 
 const production = process.env.NODE_ENV === 'production';
 
+const ROOT_PATH = path.resolve(__dirname, '..');
+
 module.exports = {
 	entry: path.resolve(__dirname, '..', './src/index.tsx'), //точка входа в наше приложение содержит абсолютный путь к index.ts
 	output: {
@@ -50,6 +52,9 @@ module.exports = {
 				use: [
 					{
 						loader: 'ts-loader',
+						options: {
+							configFile: path.resolve(ROOT_PATH, 'tsconfig.json'),
+						},
 					},
 				], // для того чтобы ts-loader корректно отработал нам нужен tsconfig его можно создать вручную, а можно создать автоматически
 				/** чтобы проиницилизовать его автоматически можно установить пакет typesctipt глобально или использовать npx выполнив команду npx tsc --init
@@ -78,6 +83,14 @@ module.exports = {
 		],
 	},
 	resolve: {
+		alias: {
+			'1-app': path.resolve(ROOT_PATH, 'src', '1-app'),
+			'2-pages': path.resolve(ROOT_PATH, 'src', '2-pages'),
+			'3-widgets': path.resolve(ROOT_PATH, 'src', '3-widgets'),
+			'4-features': path.resolve(ROOT_PATH, 'src', '4-features'),
+			'5-entities': path.resolve(ROOT_PATH, 'src', '5-entities'),
+			'6-shared': path.resolve(ROOT_PATH, 'src', '6-shared'),
+		},
 		extensions: ['.js', '.jsx', '.tsx', '.ts', '.json'], //указываем файлы с которыми будет работать webpack
 	},
 	plugins: [

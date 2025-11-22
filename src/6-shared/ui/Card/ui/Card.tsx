@@ -3,10 +3,10 @@ import s from './Card.module.css';
 import { Price } from './Price/ui/Price';
 import { Link } from 'react-router-dom';
 import { LikeButton } from '../../LikeButton';
-import { useAppSelector } from '../../../store/utils';
-import { cartSelectors } from '../../../store/slices/cart';
-import { useAddToCart } from '../../../hooks/useAddToCart';
+import { useAppSelector } from '1-app/store/utils';
+import { cartSelectors } from '5-entities/cart/model/cart';
 import { CartCounter } from '../../CartCounter';
+import { useAddToCart } from '5-entities/cart';
 
 type CardProps = {
 	product: Product;

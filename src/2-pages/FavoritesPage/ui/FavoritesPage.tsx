@@ -1,25 +1,15 @@
-import { WithProtection } from '../../../6-shared/store/HOCs/WithProtection';
-import { WithQuery } from '../../../6-shared/store/HOCs/WithQuery';
-import { useProducts } from '../../../6-shared/store/hooks/useProducts';
-import { ButtonBack } from '../../../6-shared/ui/ButtonBack';
-import { CardList } from '../../../3-widgets/CardList';
+import { ButtonBack } from '6-shared/ui/ButtonBack';
+import { FavoriteList } from '4-features/favoriteList';
+import { useLocation } from 'react-router-dom';
 
-const CardListWithQuery = WithQuery(CardList);
-
-export const FavoritesPage = WithProtection(() => {
-	const { isLoading, isError, products, error } = useProducts();
+export const FavoritesPage = () => {
+	const { pathname } = useLocation();
+	const isFavoritesPage = pathname === '/favorites';
 
 	return (
 		<>
-			<br />
 			<ButtonBack />
-			<CardListWithQuery
-				title='Избранные'
-				isLoading={isLoading}
-				isError={isError}
-				products={products}
-				error={error}
-			/>
+			<FavoriteList isFavoritesPage={isFavoritesPage} />
 		</>
 	);
-});
+};

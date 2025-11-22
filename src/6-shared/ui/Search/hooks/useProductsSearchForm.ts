@@ -1,8 +1,8 @@
-import { useEffect, useState, useTransition } from 'react'; // ← добавили useTransition
+import { useEffect, useState, useTransition } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useDebounce } from '../../../hooks/useDebounce';
-import { useAppDispatch } from '../../../store/utils';
-import { productsActions } from '../../../store/slices/products';
+import { useAppDispatch } from '1-app/store/utils';
+import { useDebounce } from '../../../lib/hooks/useDebounce';
+import { productsActions } from '5-entities/product';
 
 const QUERY_SEARCH_PHRASE = 'q';
 

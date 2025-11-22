@@ -1,9 +1,9 @@
 import { useTransition } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../store/utils';
+import { useAppDispatch, useAppSelector } from '1-app/store/utils';
 import {
-	productsActions,
 	productsSelectors,
-} from '../../../store/slices/products';
+	productsActions,
+} from '../../../../5-entities/product/model/products';
 
 interface SortParams {
 	title: string;
