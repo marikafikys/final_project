@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '1-app/store/utils';
 import {
 	productsSelectors,
 	productsActions,
-} from '../../../../5-entities/product/model/products';
+} from '5-entities/product/model/products';
 
 interface SortParams {
 	title: string;

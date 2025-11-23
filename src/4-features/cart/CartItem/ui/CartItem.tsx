@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import s from './CartItem.module.css';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
-import { CartCounter } from '6-shared/ui/CartCounter';
+import { CartCounter } from '3-widgets/CartCounter';
 import { cartActions } from '5-entities/cart';
 
 type CartItemProps = {

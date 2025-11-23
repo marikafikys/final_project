@@ -1,12 +1,12 @@
 import s from './LikeButton.module.css';
-import { ReactComponent as LikeSvg } from './../../../assets/icons/like.svg';
+import { ReactComponent as LikeSvg } from '6-shared/assets/icons/like.svg';
 import classNames from 'classnames';
-import { userSelectors } from '../../../../5-entities/user/model/user';
+import { userSelectors } from '5-entities/user';
 import {
 	useSetLikeProductMutation,
 	useDeleteLikeProductMutation,
 	IErrorResponse,
-} from '../../../../5-entities/product';
+} from '5-entities/product';
 import { toast } from 'react-toastify';
 import { useAppSelector } from '1-app/store/utils';
 

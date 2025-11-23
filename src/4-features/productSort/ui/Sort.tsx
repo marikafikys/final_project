@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react';
-import { useSort } from '../hooks/useSort';
+import { useSort } from '../lib/useSort';
 import s from './Sort.module.css';
 
 export const Sort = () => {

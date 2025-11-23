@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
 import s from './ConfirmDialog.module.css';
-import { ConfirmDialogProps } from './types';
+import { ConfirmDialogProps } from '../model/types';
 
 export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
 	title = 'Вы уверены?',

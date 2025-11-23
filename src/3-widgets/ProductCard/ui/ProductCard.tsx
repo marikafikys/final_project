@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 import s from './ProductCard.module.css';
 import { Rating } from '6-shared/ui/Rating';
-import { CartCounter } from '6-shared/ui/CartCounter';
-import { LikeButton } from '6-shared/ui/LikeButton';
+import { CartCounter } from '3-widgets/CartCounter';
+import { LikeButton } from '3-widgets/LikeButton';
 import { ProductDelivery } from '3-widgets/ProductDelivery';
 import { ProductSpecifications } from '3-widgets/ProductSpecifications';
-import { ProductCartCounter } from '6-shared/ui/ProductCartCounter';
+import { ProductCartCounter } from '3-widgets/ProductCard/ui/ProductCartCounter';
 
 interface IProps {
 	product: Product;

@@ -1,9 +1,6 @@
 import { RefObject, useCallback, useLayoutEffect } from 'react';
 import { useProducts } from '5-entities/product';
-import {
-	productsActions,
-	productsSelectors,
-} from '../../../../5-entities/product/model/products';
+import { productsActions, productsSelectors } from '../model/products';
 import { useAppDispatch, useAppSelector } from '1-app/store/utils';
 
 interface UseLoadMoreParams {

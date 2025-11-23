@@ -1,7 +1,7 @@
 import { CardList } from '3-widgets/CardList';
 import { useProducts } from '5-entities/product';
 import { WithQuery } from '6-shared/lib/HOCs/WithQuery';
-import { LoadMore } from '6-shared/ui/LoadMore';
+import { LoadMore } from '3-widgets/ProductLoadMore';
 
 export const ProductList = () => {
 	const { products, isLoading, isError, error } = useProducts();

@@ -1,16 +1,16 @@
 import classNames from 'classnames';
 import s from './Header.module.css';
 import { Logo } from '6-shared/ui/Logo';
-import { Search } from '6-shared/ui/Search/ui/Search';
+import { Search } from '4-features/productSearch';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '1-app/store/utils';
 import { userActions, userSelectors } from '5-entities/user';
 import { isLiked } from '6-shared/lib/utils';
 import { useProducts } from '5-entities/product';
 import { cartSelectors } from '5-entities/cart/model/cart';
-import { useConfirmDialog } from '6-shared/ui/ConfirmDialog/useConfirmDialog';
 import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
+import { useConfirmDialog } from '6-shared/ui/ConfirmDialog';
 
 export const Header = () => {
 	const dispatch = useDispatch();

@@ -2,11 +2,10 @@ import classNames from 'classnames';
 import s from './Card.module.css';
 import { Price } from './Price/ui/Price';
 import { Link } from 'react-router-dom';
-import { LikeButton } from '../../LikeButton';
 import { useAppSelector } from '1-app/store/utils';
-import { cartSelectors } from '5-entities/cart/model/cart';
-import { CartCounter } from '../../CartCounter';
-import { useAddToCart } from '5-entities/cart';
+import { cartSelectors, useAddToCart } from '5-entities/cart';
+import { CartCounter } from '3-widgets/CartCounter';
+import { LikeButton } from '3-widgets/LikeButton';
 
 type CardProps = {
 	product: Product;

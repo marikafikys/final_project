@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { WithProtection } from '6-shared/lib/HOCs/WithProtection';
+import { WithProtection } from '5-entities/user/lib/WithProtection';
 import { ProductDetails } from '4-features/productDetails';
 
 export const ProductPage = WithProtection(() => {

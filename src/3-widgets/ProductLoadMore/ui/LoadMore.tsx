@@ -1,6 +1,6 @@
 import { Alert, CircularProgress, Stack } from '@mui/material';
 import { useRef } from 'react';
-import { useLoadMore } from '../hooks/useLoadMore';
+import { useLoadMore } from '../../../5-entities/product/lib/useLoadMore';
 
 export const LoadMore = () => {
 	const ref = useRef<HTMLDivElement>(null);

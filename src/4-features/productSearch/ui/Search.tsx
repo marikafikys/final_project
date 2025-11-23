@@ -1,5 +1,5 @@
 import s from './Search.module.css';
-import { useProductsSearchForm } from '../hooks/useProductsSearchForm';
+import { useProductsSearchForm } from '..';
 
 export const Search = () => {
 	const { searchValue, setSearchValue, isPending } = useProductsSearchForm();
