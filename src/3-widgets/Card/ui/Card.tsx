@@ -6,15 +6,20 @@ import { useAppSelector } from '1-app/store/utils';
 import { cartSelectors, useAddToCart } from '5-entities/cart';
 import { CartCounter } from '3-widgets/CartCounter';
 import { LikeButton } from '3-widgets/LikeButton';
+import { memo, useCallback } from 'react';
 
 type CardProps = {
 	product: Product;
 };
-export const Card = ({ product }: CardProps) => {
+export const Card = memo(({ product }: CardProps) => {
 	const { discount, price, name, tags, id, images } = product;
 	const cartProducts = useAppSelector(cartSelectors.getCartProducts);
 	const isProductInCart = cartProducts.some((p) => p.id === id);
 	const { addProductToCart } = useAddToCart();
+
+	const handleAddToCart = useCallback(() => {
+		addProductToCart({ ...product, count: 1 });
+	}, [addProductToCart, product]);
 
 	return (
 		<article className={s['card']}>
@@ -41,7 +46,7 @@ export const Card = ({ product }: CardProps) => {
 				<CartCounter productId={id} />
 			) : (
 				<button
-					onClick={() => addProductToCart({ ...product, count: 1 })}
+					onClick={handleAddToCart}
 					disabled={isProductInCart}
 					className={classNames(s['cart'], s['btn'], s['btntypeprimary'])}>
 					В корзину
@@ -49,4 +54,4 @@ export const Card = ({ product }: CardProps) => {
 			)}
 		</article>
 	);
-};
+});

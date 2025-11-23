@@ -11,16 +11,23 @@ import { cartSelectors } from '5-entities/cart/model/cart';
 import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useConfirmDialog } from '6-shared/ui/ConfirmDialog';
+import { memo, useMemo } from 'react';
 
-export const Header = () => {
+export const Header = memo(() => {
+	// export const Header = () => {
 	const dispatch = useDispatch();
 	const { products } = useProducts();
 	const user = useAppSelector(userSelectors.getUser);
 	const cartProducts = useAppSelector(cartSelectors.getCartProducts);
 
-	const likeCount = products.filter((product) =>
-		isLiked(product.likes, user?.id)
-	).length;
+	// const likeCount = products.filter((product) =>
+	// 	isLiked(product.likes, user?.id)
+	// ).length;
+
+	const likeCount = useMemo(() => {
+		if (!user?.id) return 0;
+		return products.filter((p) => isLiked(p.likes, user.id)).length;
+	}, [products, user?.id]);
 
 	const accessToken = useAppSelector(userSelectors.getAccessToken);
 
@@ -96,4 +103,4 @@ export const Header = () => {
 			</div>
 		</header>
 	);
-};
+});
