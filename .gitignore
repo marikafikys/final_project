@@ -1,4 +1,12 @@
+# Build outputs
+/dist
+/build
+/.vite
 node_modules
+
 .DS_Store
-dist
 dogfood
+
+# TypeScript output
+src/**/*.js
+src/**/*.js.map

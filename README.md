@@ -62,6 +62,24 @@
 
 <img src="public/6.2.png" width="500" />
 
+7. Альтернативная сборка Vite
+
+- Запуск сборки Webpack:
+  rm -rf dist && time NODE_ENV=production npx webpack --config webpack/webpack.config.js --env env=prod
+
+  Время сборки: 24.17 c
+  Размер: 611 kB (нет gzip)
+
+<img src="public/7.1.png" width="500" />
+
+- Запуск сборки Vite:
+  rm -rf dist && time npm run build
+
+  Время сборки: 11.80 c (быстрее на ~50%)
+  Размер: 717.79 kB (gzip: 233.68 kB)
+
+<img src="public/7.2.png" width="500" />
+
 ## Чек-лист:
 
 1. Архитектура и структура — 4 балла
@@ -88,8 +106,8 @@
 
 5. Альтернативная сборка (esbuild/SWC/Vite) — 2 балла
 
-- [ ] Рабочая сборка (1)
-- [ ] Сравнение с Webpack в README (время/размер, краткий вывод) (1)
+- [x] Рабочая сборка (1)
+- [x] Сравнение с Webpack в README (время/размер, краткий вывод) (1)
 
 1. React 19 hooks — 3 балла
 
